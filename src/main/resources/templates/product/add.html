@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/base_layout">
+<head>
+	<meta charset="utf-8"/>
+	<title>Add Product</title>
+</head>
+<body>
+	<div class="page-content" layout:fragment="content" style="min-height:467px">
+		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		<div class="page-bar">
+			<ul class="page-breadcrumb">
+				<li>
+					<i class="fa fa-home"></i><a href="@{/admin/product}">Home</a> <i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a th:href="@{/admin/product}">Product</a> <i class="fa fa-angle-right"></i>
+				</li>
+			</ul>
+			<div class="page-toolbar">
+			</div>
+		</div>
+		<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="portlet light bordered">
+					<div class="portlet-title">
+						<div class="caption font-green-haze">
+							<i class="icon-settings font-green-haze"></i> <span
+								class="caption-subject bold uppercase"> Create Product</span>
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<form  action="#" th:action="@{~/admin/product/add}" th:object="${product}" method="POST" role="form" class="form-horizontal">
+							<div class="form-body">
+								<div class="form-group form-md-line-input">
+									<label  class="col-md-2 control-label" >Product Name</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productName}" placeholder="Enter product name">
+										<label th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label" >Product Tilte</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productTitle}"  placeholder="Enter product Title">
+										<label th:if="${#fields.hasErrors('productTitle')}" th:errors="*{productTitle}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label" >Product Company</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productCompany}"  placeholder="Enter product company">
+										<label th:if="${#fields.hasErrors('productCompany')}" th:errors="*{productCompany}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label" >Product Genre</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productGenre}"  placeholder="Enter product genre">
+										<label th:if="${#fields.hasErrors('productGenre')}" th:errors="*{productGenre}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label">Product Number</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productNumber}"  placeholder="Enter product number">
+										<label th:if="${#fields.hasErrors('productNumber')}" th:errors="*{productNumber}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label">Product Price</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control" th:field="*{productPrice}"  placeholder="Enter product price">
+										<label th:if="${#fields.hasErrors('productPrice')}" th:errors="*{productPrice}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label">Product Start Date</label>
+									<div class="col-md-10">
+										<input class="form-control date-picker" th:field="*{productStartDate}"  size="16" type="text">
+										<label th:if="${#fields.hasErrors('productStartDate')}" th:errors="*{productStartDate}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>
+								<div class="form-group form-md-line-input">
+									<label class="col-md-2 control-label">Product End Date</label>
+									<div class="col-md-10">
+										<input class="form-control  date-picker" th:field="*{productEndDate}"  size="16" type="text">
+										<label th:if="${#fields.hasErrors('productEndDate')}" th:errors="*{productEndDate}" class="validation-message font-red-sunglo alert-form"></label>
+									</div>
+								</div>																	
+							</div>
+							<div class="form-actions form-button" style= "margin-top: 24px;">
+								<div class="row">
+									<div class="col-md-offset-2 col-md-10">
+										<a  th:href="@{~/admin/product}" class="btn default">Cancel</a>
+										<button type="submit" class="btn blue">Submit</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>
+</body>
+</html>

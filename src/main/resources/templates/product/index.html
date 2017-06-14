@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/base_layout">
+<head>
+    <meta charset="utf-8" />
+	<title>Demo Project Management With Spring</title>
+</head>
+<body>
+	<div class="page-content" layout:fragment="content" style="min-height:467px;">
+	<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i><a href="@{/admin/product}">Home</a> <i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<a th:href="@{/admin/product}">Product</a> <i class="fa fa-angle-right"></i>
+			</li>
+		</ul>
+		<div class="page-toolbar">
+		</div>
+	</div>
+	<!-- END PAGE HEADER-->
+	<!-- BEGIN PAGE CONTENT-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="note note-success">
+				<p> Welcome to the product management page. </p>
+			</div>
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="portlet box green">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-cogs"></i>Product
+					</div>
+				</div>
+				<div class="portlet-body flip-scroll">
+					<table class="table table-bordered table-striped table-condensed flip-content">
+						<thead class="flip-content">
+							<tr>
+								<th width="15%">Name</th>
+								<th class="numeric">Title</th>
+								<th class="numeric">Company</th>
+								<th class="numeric">Price</th>
+								<th class="numeric">Number</th>
+								<th class="numeric">Genre</th>
+								<th class="numeric">Start Date</th>
+								<th class="numeric">End Date</th>
+								<th class="numeric">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<th:block th:each="product : ${listProduct}">
+						      <tr>
+						         <td th:text="${product.productName}">...</td>
+						         <td th:text="${product.productTitle}">...</td>
+						         <td th:text="${product.productCompany}">...</td>
+						         <td th:text="${product.productPrice}">...</td>
+						         <td th:text="${product.productNumber}">...</td>
+						         <td th:text="${product.productGenre}">...</td>
+						         <td th:text="${product.productStartDate}">...</td>
+						         <td th:text="${product.productEndDate}">...</td>
+						         <td>
+									 <a th:href="@{~/admin/product/edit/} + ${product.id}" class="btn purple btn-sm editProduct"> <i class="fa fa-cog"></i> Edit </a>
+                                     <a th:href="@{~/admin/product/delete/} + ${product.id}" class="btn red btn-sm deleteElement"> <i class="fa fa-cog"></i> Delete</a>
+								</td>
+						      </tr>
+						   </th:block>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
